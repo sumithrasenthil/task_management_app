@@ -46,6 +46,10 @@ gem 'whenever', require: false
 gem 'sidekiq'
 gem 'shoulda-matchers'
 
+gem 'google-api-client', '~> 0.53'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection' # For security
+
 
 # Use Sass to process CSS
 # gem "sassc-rails"
