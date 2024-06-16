@@ -13,3 +13,81 @@
  *= require_tree .
  *= require_self
  */
+
+ .task-details {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .task-details th, .task-details td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .task-details th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  .task-details td {
+    font-size: 14px;
+  }
+  
+  .task-details tr:last-child td {
+    border-bottom: none;
+  }
+  
+  .task-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .error-messages {
+    color: red;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .form-actions {
+    margin-top: 20px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  
