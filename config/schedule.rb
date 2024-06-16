@@ -12,5 +12,5 @@
 # Learn more: http://github.com/javan/whenever
 
 every 1.hour do
-  rake 'reminders:send_reminders'
+  rails 'reminders:send_reminders'
 end

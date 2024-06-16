@@ -3,7 +3,7 @@ class TaskReminderEmailJob < ApplicationJob
 
   def perform(task_id, time_before)
     task = Task.find_by(id: task_id)
-    return unless task.present? && task.state != 'Done'
+    return unless task.present? && task.status != 'Done'
 
     TaskMailer.reminder_email(task, time_before).deliver_later
   end
