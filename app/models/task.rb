@@ -3,7 +3,7 @@ class Task < ApplicationRecord
   validates_presence_of :title, :description, :due_date, :status
   enum status: { backlog: 0, in_progress: 1, done: 2 }
 
-  scope :upcoming_tasks_to_remind_about, -> { where('due_date > ?', Time.now).where.not(status: 'Done') }
+  scope :upcoming_tasks_to_remind_about, -> { where('due_date > ?', Time.now).where.not(status: 'done') }
 
   after_create :add_to_google_calendar
 
