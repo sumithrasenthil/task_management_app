@@ -5,6 +5,12 @@ class Task < ApplicationRecord
 
   scope :upcoming_tasks_to_remind_about, -> { where('due_date > ?', Time.now).where.not(status: 'Done') }
 
+  after_create :add_to_google_calendar
+
+  def add_to_google_calendar
+    GoogleCalendarService.new(user).create_event(self)
+  end
+  
   def due_soon?(time_before)
     case time_before
     when '1 day'

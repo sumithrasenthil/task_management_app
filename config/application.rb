@@ -18,6 +18,8 @@ module TaskManagementApp
     # in config/environments, which are processed later.
     #
     config.time_zone = 'Asia/Kolkata'
+    Bundler.require(*Rails.groups)
+    Dotenv::Railtie.load
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end

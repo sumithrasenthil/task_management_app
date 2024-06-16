@@ -10,6 +10,11 @@
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
   config.navigational_formats = ['*/*', :html, :turbo_stream]
+    config.omniauth :google_oauth2, '1061089247404-g9js8d4ad8t6sd6ra7a9f8082du3k0k1.apps.googleusercontent.com', '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', {
+      scope: 'userinfo.email, userinfo.profile, calendar',
+      prompt: 'consent',
+      access_type: 'offline'
+    }
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.

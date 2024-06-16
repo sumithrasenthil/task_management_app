@@ -24,7 +24,9 @@ class TasksController < ApplicationController
     @task.user_id = current_user.id
     respond_to do |format|
       if @task.save
-        format.html { redirect_to task_url(@task), notice: 'Task was successfully created.' }
+        redirect_to @task, notice: 'Task was successfully created and added to Google Calendar.'
+
+        # format.html { redirect_to task_url(@task), notice: 'Task was successfully created.' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end

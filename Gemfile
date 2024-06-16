@@ -44,8 +44,12 @@ gem "bootsnap", require: false
 gem "devise"
 gem 'whenever', require: false
 gem 'sidekiq'
+gem 'omniauth-google-oauth2'
+gem 'google-api-client', '~> 0.53.0'
+gem "omniauth-rails_csrf_protection"
 
 
+gem 'dotenv-rails', groups: [:development, :test]
 # Use Sass to process CSS
 # gem "sassc-rails"
 
