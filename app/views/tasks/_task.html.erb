@@ -1,22 +1,21 @@
-<div id="<%= dom_id task %>">
-  <p>
-    <strong>Title:</strong>
-    <%= task.title %>
-  </p>
+<table id="<%= dom_id(task) %>" style="width: 100%; max-width: 600px; margin: 20px auto; border-collapse: collapse; border: 1px solid #ccc; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+  <tr style="background-color: #f2f2f2;">
+    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #ddd; font-weight: bold;">Title</th>
+    <td style="padding: 12px; text-align: left; border-bottom: 1px solid #ddd;"><%= task.title %></td>
+  </tr>
 
-  <p>
-    <strong>Description:</strong>
-    <%= task.description %>
-  </p>
+  <tr>
+    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #ddd; background-color: #f2f2f2; font-weight: bold;">Description</th>
+    <td style="padding: 12px; text-align: left; border-bottom: 1px solid #ddd;"><%= task.description %></td>
+  </tr>
 
-  <p>
-    <strong>Due date:</strong>
-    <%= task.due_date %>
-  </p>
+  <tr>
+    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #ddd; font-weight: bold;">Due Date</th>
+    <td style="padding: 12px; text-align: left; border-bottom: 1px solid #ddd;"><%= task.due_date.strftime('%B %d, %Y %H:%M %p') %></td>
+  </tr>
 
-  <p>
-    <strong>Status:</strong>
-    <%= task.status %>
-  </p>
-
-</div>
+  <tr>
+    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #ddd; background-color: #f2f2f2; font-weight: bold;">Status</th>
+    <td style="padding: 12px; text-align: left; border-bottom: 1px solid #ddd;"><%= task.status.humanize %></td>
+  </tr>
+</table>
