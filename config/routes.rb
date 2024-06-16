@@ -1,3 +1,4 @@
+require 'sidekiq/web'
 Rails.application.routes.draw do
   resources :tasks
   devise_for :users
@@ -6,4 +7,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   root to: 'home#index'
+  
+    mount Sidekiq::Web => '/sidekiq'
 end

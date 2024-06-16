@@ -12,5 +12,5 @@
 # Learn more: http://github.com/javan/whenever
 
 every 1.hour do
-  rails 'reminders:send_reminders'
+  runner 'rails reminders:send_reminders'
 end
