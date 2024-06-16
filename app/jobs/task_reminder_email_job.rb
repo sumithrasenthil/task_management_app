@@ -1,5 +1,6 @@
 class TaskReminderEmailJob < ApplicationJob
-  queue_as :default, retry: 1
+  queue_as :default
+  retry_on StandardError, wait: :exponentially_longer, attempts: 1
 
   def perform(task_id, time_before)
     task = Task.find_by(id: task_id)
