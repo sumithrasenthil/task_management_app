@@ -28,7 +28,11 @@
 
   <div>
     <%= form.label :status, style: "display: block" %>
-    <%= form.number_field :status %>
+    <%= form.select :status, options_for_select(Task.statuses.keys.map { |status| [status.humanize, status] }, form.object.status) %>
+  </div>
+  
+  <div>
+    <%= form.hidden_field :user_id, value: current_user.id %>
   </div>
 
   <div>
