@@ -1,0 +1,40 @@
+<div style="max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9f9f9; border: 1px solid #ccc; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+  <%= form_with(model: task) do |form| %>
+    <% if task.errors.any? %>
+      <div style="color: red; margin-bottom: 20px;">
+        <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+        <ul>
+          <% task.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div style="margin-bottom: 20px;">
+      <%= form.label :title, style: "display: block; font-weight: bold;" %>
+      <%= form.text_field :title, class: "form-control", style: "width: 100%; padding: 10px; font-size: 14px; border: 1px solid #ccc; border-radius: 3px;" %>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+      <%= form.label :description, style: "display: block; font-weight: bold;" %>
+      <%= form.text_area :description, class: "form-control", style: "width: 100%; padding: 10px; font-size: 14px; border: 1px solid #ccc; border-radius: 3px;" %>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+      <%= form.label :due_date, style: "display: block; font-weight: bold;" %>
+      <%= form.datetime_field :due_date, class: "form-control", style: "width: 100%; padding: 10px; font-size: 14px; border: 1px solid #ccc; border-radius: 3px;" %>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+      <%= form.label :status, style: "display: block; font-weight: bold;" %>
+      <%= form.select :status, options_for_select(Task.statuses.keys.map { |status| [status.humanize, status] }, form.object.status), {}, { class: "form-control", style: "width: 100%; padding: 10px; font-size: 14px; border: 1px solid #ccc; border-radius: 3px;" } %>
+    </div>
+    
+    <%= form.hidden_field :user_id, value: current_user.id %>
+
+    <div style="margin-top: 20px;">
+      <%= form.submit "Save Task", class: "btn btn-primary", style: "padding: 10px 20px; font-size: 16px; cursor: pointer; background-color: #007bff; color: #fff; border: none; border-radius: 3px;" %>
+    </div>
+  <% end %>
+</div>
